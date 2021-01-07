@@ -1,0 +1,69 @@
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from '../layouts/blog'
+import Article from '../components/blog/article'
+
+
+
+
+
+
+
+
+export default ({ data }) => {
+	const post = data.allWordpressPost.edges[0].node
+	
+	return (
+	  <Layout>
+
+		 {data.allWordpressPost.edges.map((item,i)=>(
+					<Article key={i} content={item.node.content} thumbnail={item.node.featured_media.source_url} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
+				)).slice(0,6)}
+				
+				<button href="" className="btn btn__beige" onClick={
+					()=>{
+						this.setState({postToShow: this.state.postToShow + 6})
+					}
+				}>Wczytaj więcej</button>
+  
+	  </Layout>
+	)
+  }
+  
+export const query = graphql`
+
+query CategoryPage($slug: String!) {
+ 
+    allWordpressPost(
+      filter: { categories: { elemMatch: { slug: { eq: $slug } } } }
+    ) {
+      edges {
+        node {
+
+			content
+          date(formatString: "MM.DD.YYYY")
+          excerpt
+          slug
+          title
+          featured_media {
+            id
+            source_url
+          }
+          tags {
+            name
+            id
+            slug
+          }
+          categories {
+            id
+            name
+            slug
+          }
+          
+        
+        }
+      }
+    }
+  }
+	
+	`
