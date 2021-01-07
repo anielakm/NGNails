@@ -1,8 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
-import { theme } from "../../utilis/theme"
+// import { theme } from "../../utilis/theme"
 import video from '../../images/yt/ngn.mp4'
-
 
 const YtContainer = styled.section`
 	padding: 0;

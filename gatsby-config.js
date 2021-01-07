@@ -50,7 +50,7 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram-all`,
       options: {
-        access_token: "IGQVJYbDdQUWlXLWZAueEZAJWDlpbVNGVDlJMEk0SllDTkhibnRTR3FFWE1meDh3aUFWMkZAERFpUcGdPRmhTbzFSd3p3YUlvUjVRbFM2M0s4NE9ibWNsSGJ2elBZARnR6ZADlWWEotN0lVWnFVckdjWW5icQZDZD",
+        access_token: "IGQVJWaXpyWFJCeFZAjWG85RUY5YkJXeUZA6c3ZAuNDBTM09Qc0FtNlluTEJhYUNZARmJqX1BFM1FjQjJ3SDJxX3dGbWRWNEpheWdpRjRnSUtoN1NqcFY2c3FsTzJ0TTlnYWJtTXd5N3RMZAU81U0RyT0VPdAZDZD",
       }
     },
 
@@ -74,6 +74,7 @@ module.exports = {
         '**/categories',
         "**/media",
       ],
+      minimizeDeprecationNotice: true,
       // plugins: [
       //   {
       //     resolve: `gatsby-wordpress-inline-images`,
