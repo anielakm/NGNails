@@ -337,9 +337,9 @@ export default ({ data }) => {
         <div className="tags">
         <h6>Tagi: </h6>
         <ul class="">
-         {post.tags.map((tag,i)=> 
+         {/*post.tags.map((tag,i)=> 
           (<li key={i}><Link to={`/tag/${tag.slug}`}>{tag.name}</Link></li>
-          ))}
+         ))*/}
         </ul>
         </div>
        
