@@ -4,7 +4,6 @@ import Header from '../components/blog/header'
 import Main from '../components/blog/main'
 import Nav from '../components/blog/nav'
 import GlobalStyle from '../styles/globalStyles'
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import { theme } from "../utilis/theme"
 import 'swiper/swiper-bundle.css';
 
@@ -103,43 +102,13 @@ class Blog extends React.Component {
 		document.querySelector('.burger').classList.toggle('active');
 		document.querySelector('.blog-nav').classList.toggle('active');
 	}
-
-	  componentDidMount(){
-		// Swiper.use([Navigation, Pagination, Autoplay]);
-		// console.log()
-
-		// let swiper = new Swiper('.swiper-container', {
-
-		// 	slidesPerView: 1,
-		// 	loop: true,
-						
-		// 	autoplay: {
-		// 		delay: 2500,
-		// 		disableOnInteraction: false,
-		// 		},
-			
-		// 	navigation: {
-		// 		nextEl: '.swiper-button-next',
-		// 		prevEl: '.swiper-button-prev',
-		// 	  },
-					
-	  
-		// 	  pagination: {
-		// 		el: '.swiper-pagination',
-		// 		type: 'bullets',
-		// 		clickable: true,
-		// 	  }
-			
-	  
-		//   });
-		}
 		
 
 		  render() {
 
 			return (
 
-				<>
+				<React.Fragment>
 
 					<GlobalStyle />
 
@@ -163,7 +132,7 @@ class Blog extends React.Component {
 						<Footer />
 					</footer>
 		
-				</>
+				</React.Fragment>
 
 )
 }

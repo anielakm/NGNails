@@ -197,7 +197,7 @@ export default ({ data }) => {
       
     <Article>
     
-        <img className="thumbnail" src={post.featuredImage.node.sourceUrl} alt=""/>
+        {post.featuredImage ? (<img className="thumbnail" src={post.featuredImage.node.sourceUrl} alt=""/>) : null}
 
         <div className="breadcrumbs">
           <ul>

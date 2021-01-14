@@ -87,7 +87,7 @@ const ArticleContainer = styled.article`
 const Article = ({thumbnail, categories, slug, title, date, excerpt, content}) => (
 
 	<ArticleContainer className="blog-list__item">
-	<Link to={`/${slug}`} className="thumbnail" ><img src={thumbnail} alt=""/></Link>
+	<Link to={`/${slug}`} className="thumbnail" >{thumbnail ? (<img src={thumbnail} alt=""/>) : null}</Link>
 					
 					<div className="blog-list__bar">
 						<div className="category">

@@ -147,8 +147,7 @@ class Main extends React.Component {
 				<section className="blog-list">
 			
 				{data.allWordpressPost.edges.map((item,i)=>(
-					<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
-				)).slice(0,this.state.postToShow)}
+					item.node.featuredImage.node.sourceUrl ? (<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>) : null )).slice(0,this.state.postToShow)}
 				
 				<button href="" className="btn btn__beige" onClick={
 					()=>{
