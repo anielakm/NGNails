@@ -91,9 +91,10 @@ const Article = ({thumbnail, categories, slug, title, date, excerpt, content}) =
 					
 					<div className="blog-list__bar">
 						<div className="category">
-							{categories.nodes.map((cat,i)=>(
+							{categories.nodes ? 
+								(categories.nodes.map((cat,i)=>(
 								<Link key={i} to={`/${cat.slug}`}>{cat.name}</Link>
-							))}
+							))) : null}
 						</div>
 						<span className="date">
 						
