@@ -191,13 +191,13 @@ iframe {
 
 export default ({ data }) => {
   const post = data.allWordpressPost.edges[0].node
-  console.log(post)
+ 
   return (
     <Layout>
       
     <Article>
     
-        <img className="thumbnail" src={post.featured_media.source_url} alt=""/>
+        <img className="thumbnail" src={post.featuredImage.node.sourceUrl} alt=""/>
 
         <div className="breadcrumbs">
           <ul>
@@ -216,9 +216,9 @@ export default ({ data }) => {
         <footer>
 
         <div className="categories">
-          <h6>{post.categories.length > 1 ? 'Kategorie: ' : 'Kategoria: '}</h6>
-          <ul class="">
-          {post.categories.map((cat,i)=> 
+          <h6>{post.categories.nodes.length > 1 ? 'Kategorie: ' : 'Kategoria: '}</h6>
+          <ul className="">
+          {post.categories.nodes.map((cat,i)=> 
             (<li key={i}><Link to={cat.slug}>{cat.name}</Link></li>
             ))}
           </ul>
@@ -337,8 +337,8 @@ export default ({ data }) => {
 
         <div className="tags">
         <h6>Tagi: </h6>
-        <ul class="">
-        {post.tags.map((tag,i)=> 
+        <ul className="">
+        {post.tags.nodes.map((tag,i)=> 
           (<li key={i}><Link to={`/tag/${tag.slug}`}>{tag.name}</Link></li>
           ))}
         </ul>
@@ -363,19 +363,27 @@ export const query = graphql`
           excerpt
           slug
           title
-          featured_media {
-            id
-            source_url
+          featuredImage {
+            node{
+              sourceUrl
+            }
+            
           }
           tags {
-            name
-            id
-            slug
+            nodes {
+              name
+              id
+              slug
+            }
+           
           }
           categories {
-            id
-            name
-            slug
+            nodes {
+              id
+              name
+              slug
+            }
+            
           }
           
           

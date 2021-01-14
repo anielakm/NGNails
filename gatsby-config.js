@@ -20,7 +20,10 @@ module.exports = {
 
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -50,55 +53,36 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram-all`,
       options: {
-        access_token: "IGQVJWaXpyWFJCeFZAjWG85RUY5YkJXeUZA6c3ZAuNDBTM09Qc0FtNlluTEJhYUNZARmJqX1BFM1FjQjJ3SDJxX3dGbWRWNEpheWdpRjRnSUtoN1NqcFY2c3FsTzJ0TTlnYWJtTXd5N3RMZAU81U0RyT0VPdAZDZD",
+        access_token: "IGQVJXTU5FcDJESjQtZAElaV2FLelM4ZAmJZAajVNUXlLSEp5b0hobldseC1ZAOGg3WThXbS1VcXVkR3NwNU9ZAblhCOE1zdEtzM20xX2dfcFhydHlLV2lnNy10MFZALdVFnc0ZAabGpYUDl4bnoxMllQa1ZAlbwZDZD",
       }
     },
 
+    {
 
-
-  {
-    resolve: "gatsby-source-wordpress",
-    options: {
-      // your WordPress source
-      baseUrl: `ngnails.pl/`,
-      protocol: `https`,
-      // is it hosted on wordpress.com, or self-hosted?
-      hostingWPCOM: false,
-       // Specify which URL structures to fetch
-        useACF:false,
-        auth:{},
-        verboseOutput: false,
-       includedRoutes: [
-        '**/posts',
-        '**/tags',
-        '**/categories',
-        "**/media",
-      ],
-      minimizeDeprecationNotice: true,
-      // plugins: [
-      //   {
-      //     resolve: `gatsby-wordpress-inline-images`,
-      //     options:
-      //     {
-      //       baseUrl: `ngnails.pl/`,
-      //       protocol: `http`
-      //     }
-      //   }
-      // ]
-      
-
-    }
-
-  },
-
-  `gatsby-transformer-sharp`, 
-  {
-    resolve: `gatsby-plugin-sharp`,
-    options: {
-      failOnError: false,
+      resolve: `gatsby-source-wordpress-experimental`,
+      options: {
+        url:
+          process.env.WPGRAPHQL_URL ||
+          `https://ngnails.pl/graphql`,
+          schema: {
+            //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
+            typePrefix: `Wordpress`,
+          },
+          type: {
+            Post: {
+              limit:
+                process.env.NODE_ENV === `development`
+                  ? // Lets just pull 50 posts in development to make it easy on ourselves (aka. faster).
+                    50
+                  : // and we don't actually need more than 5000 in production for this particular site
+                    5000,
+            },
+          },
+      },
     },
-  },
-  
 
-  ],
+  
+]
+ 
+
 }

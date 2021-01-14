@@ -17,7 +17,7 @@ export default ({ data }) => {
 	  <Layout>
 
 		 {data.allWordpressPost.edges.map((item,i)=>(
-					<Article key={i} content={item.node.content} thumbnail={item.node.featured_media.source_url} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
+					<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
 				)).slice(0,6)}
 				
 				<button href="" className="btn btn__beige" onClick={
@@ -45,9 +45,12 @@ query CategoryPage($slug: String!) {
           excerpt
           slug
           title
-          featured_media {
-            id
-            source_url
+          featuredImage {
+            node{
+              id
+              sourceUrl
+            }
+           
           }
           tags {
             name

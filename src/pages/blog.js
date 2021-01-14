@@ -105,32 +105,33 @@ class Blog extends React.Component {
 	}
 
 	  componentDidMount(){
-		Swiper.use([Navigation, Pagination, Autoplay]);
+		// Swiper.use([Navigation, Pagination, Autoplay]);
+		// console.log()
 
-		let swiper = new Swiper('.swiper-container', {
+		// let swiper = new Swiper('.swiper-container', {
 
-			slidesPerView: 1,
-			loop: true,
+		// 	slidesPerView: 1,
+		// 	loop: true,
 						
-			autoplay: {
-				delay: 2500,
-				disableOnInteraction: false,
-				},
+		// 	autoplay: {
+		// 		delay: 2500,
+		// 		disableOnInteraction: false,
+		// 		},
 			
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			  },
+		// 	navigation: {
+		// 		nextEl: '.swiper-button-next',
+		// 		prevEl: '.swiper-button-prev',
+		// 	  },
 					
 	  
-			  pagination: {
-				el: '.swiper-pagination',
-				type: 'bullets',
-				clickable: true,
-			  }
+		// 	  pagination: {
+		// 		el: '.swiper-pagination',
+		// 		type: 'bullets',
+		// 		clickable: true,
+		// 	  }
 			
 	  
-		  });
+		//   });
 		}
 		
 

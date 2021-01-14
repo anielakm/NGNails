@@ -118,18 +118,24 @@ class Main extends React.Component {
 			allWordpressPost {
 				edges {
 				node {
-					featured_media {
-					source_url
-					}
-					categories {
-					name
-					slug
-					}
+					featuredImage {
+						node {
+						  sourceUrl
+						}
+					  }
+					  categories {
+						nodes {
+						  id
+						  name
+						  slug
+						}
+					  }
 					slug
 					content
 					title
-					date(formatString: "DD.MM.YYYY")
 					excerpt
+					date(formatString: "DD.MM.YYYY")
+					
 				}
 				}
 			}
@@ -141,7 +147,7 @@ class Main extends React.Component {
 				<section className="blog-list">
 			
 				{data.allWordpressPost.edges.map((item,i)=>(
-					<Article key={i} content={item.node.content} thumbnail={item.node.featured_media.source_url} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
+					<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
 				)).slice(0,this.state.postToShow)}
 				
 				<button href="" className="btn btn__beige" onClick={

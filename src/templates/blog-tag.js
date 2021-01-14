@@ -21,10 +21,10 @@ class Main extends React.Component {
 		<Layout>
 			
 				{this.props.data.allWordpressPost.edges.map((item,i)=>(
-					<Article key={i} content={item.node.content} thumbnail={item.node.featured_media.source_url} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
+					<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories.nodes} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>
 				)).slice(0,this.state.postToShow)}
 
-				{console.log(this.props)}
+
 
 				{
 					this.state.postToShow < this.props.data.allWordpressPost.edges.length ? (
@@ -54,34 +54,37 @@ export const query = graphql`
 
 query TagsPage($slug: String!) {
  
-    allWordpressPost(
-      filter: { tags: { elemMatch: { slug: { eq: $slug } } } }
-    ) {
+    allWordpressPost(filter: { tags: { nodes: {elemMatch:  { slug: { eq: $slug }} } } }) {
       edges {
         node {
-
-			content
-          date(formatString: "MM.DD.YYYY")
-          excerpt
-          slug
-          title
-          featured_media {
-            id
-            source_url
-          }
-          tags {
-            name
-            id
-            slug
+          content
+          author {
+            node {
+              name
+              id
+            }
           }
           categories {
-            id
-            name
-            slug
+            nodes {
+              id
+              name
+              slug
+            }
           }
           
-        
+          featuredImage {
+            node {
+              id
+              sourceUrl
+            }
+          }
+          slug
+          title
+          excerpt
+          date(formatString: "DD.MM.YYYY")
         }
+        
+        
       }
     }
   }

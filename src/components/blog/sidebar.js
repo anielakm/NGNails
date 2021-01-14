@@ -1,10 +1,14 @@
-import React from "react"
+import React, {useState, useEffect} from "react"
 import { theme } from "../../utilis/theme"
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from 'gatsby'
 import {Link} from 'gatsby'
 import { Helmet } from 'react-helmet';
 import SidebarAds from './sidebar-ads'
+import Fb from '../../images/fb.png'
+
+import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+
 
 const SidebarContainer = styled.aside`
 	section {
@@ -135,6 +139,7 @@ const SidebarContainer = styled.aside`
 
 
 const Sidebar = () => {
+	const [count, setCount] = useState(0);
 
 	const data = useStaticQuery(graphql`
 	{
@@ -178,14 +183,47 @@ const Sidebar = () => {
 	
 	 }	  	
 	  
-     `)
+	 `)
+
+	 useEffect(() => {
+		Swiper.use([Navigation, Pagination, Autoplay]);
+	
+
+	let swiper = new Swiper('.swiper-container', {
+
+		slidesPerView: 1,
+		loop: true,
+					
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+			},
+		
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		  },
+				
+  
+		  pagination: {
+			el: '.swiper-pagination',
+			type: 'bullets',
+			clickable: true,
+		  }
+		
+  
+	  });
+	  });
+	
+	 
+	 
 
 	return(
 
 	<SidebarContainer className="sidebar">
 
 <Helmet>
-    <script async={true} defer={true} crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=2186738638294469&autoLogAppEvents=1" />
+    {/*<script async={true} defer={true} crossOrigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v6.0&appId=2186738638294469&autoLogAppEvents=1" />*/}
 </Helmet>
 	
 		{/* <section>
@@ -219,7 +257,8 @@ const Sidebar = () => {
 
 		<h3>Facebook</h3>
 
-		<div className="fb-page" data-href="https://www.facebook.com/ngnailspl/" data-tabs="timeline" data-width="" data-height="120" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ngnailspl/" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ngnailspl/">NGNails</a></blockquote></div>
+		{/*<div className="fb-page" data-href="https://www.facebook.com/ngnailspl/" data-tabs="timeline" data-width="" data-height="120" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/ngnailspl/" className="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ngnailspl/">NGNails</a></blockquote></div>*/}
+<a href="https://www.facebook.com/ngnailspl/" target="_blank"><img src={Fb} alt=""/></a>
 		
 		</section>
 		<section>
@@ -274,6 +313,11 @@ const Sidebar = () => {
 
 	</SidebarContainer>
 
-	)}
+	)
+
+	
+	}
+
+	
 
 export default Sidebar;

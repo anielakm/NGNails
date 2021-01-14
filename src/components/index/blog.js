@@ -214,12 +214,12 @@ const Blog = ({ data, dictionary, lang }) => {
 		allWordpressPost (limit: 10){
 				edges {
 				node {
-					featured_media {
-					source_url
+					featuredImage {
+					node{
+						sourceUrl
 					}
-					categories {
-					name
 					}
+					
 					slug
 					content
 					title
@@ -254,7 +254,7 @@ const Blog = ({ data, dictionary, lang }) => {
 			{dataPosts.allWordpressPost.edges.map((item,i)=>(
 					
 				<Link to={item.node.slug} key={i} className="swiper-slide">
-					<img src={item.node.featured_media.source_url} alt=""/>
+					<img src={item.node.featuredImage.node.sourceUrl} alt=""/>
 					<h3>{item.node.title}</h3>
 					<p dangerouslySetInnerHTML={{__html: item.node.content.slice(0,160) }}></p>
 				</Link>

@@ -412,7 +412,6 @@ const Footer = () => {
 			node {
 			  id
 			  name
-			  path
 			  count
               slug
 			}
@@ -425,7 +424,6 @@ const Footer = () => {
 		  node {
 			id
 			name
-			path
             slug
 		  }
 		}
