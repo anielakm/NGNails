@@ -1,7 +1,7 @@
 import React from "react"
 import styled from 'styled-components'
 // import { theme } from "../../utilis/theme"
-import video from '../../images/yt/ngn.mp4'
+// import video from '../../images/yt/ngn.mp4'
 
 const YtContainer = styled.section`
 	padding: 0;
@@ -49,7 +49,7 @@ const Yt = ({ data, dictionary, lang }) => (
 		muted
 		autoPlay 
 		>
-		<source src={video} type="video/mp4" />
+		<source src="https://ngnails.pl/wp-content/uploads/2021/01/ngn.mp4" type="video/mp4" />
 	</video>
 
 	<div className="video__overlay">
