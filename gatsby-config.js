@@ -13,7 +13,7 @@ module.exports = {
     siteUrl: 'https://ngnails.pl',
     description: "NGNails.pl - tutoriale jak wykonać 'krok po kroku' manicure hybrydowy i żelowy, inspiracje paznokciowe na różne okazje oraz testy produktów hybrydowych i żelowych",
     url: "https://anielakm.pl", // No trailing slash allowed!
-    image: "/images/logo.png", // Path to your image you placed in the 'static' folder
+    image: "/logo.png", // Path to your image you placed in the 'static' folder
     // twitterUsername: "@occlumency",
   },
   plugins: [
@@ -56,6 +56,18 @@ module.exports = {
         access_token: "IGQVJXTU5FcDJESjQtZAElaV2FLelM4ZAmJZAajVNUXlLSEp5b0hobldseC1ZAOGg3WThXbS1VcXVkR3NwNU9ZAblhCOE1zdEtzM20xX2dfcFhydHlLV2lnNy10MFZALdVFnc0ZAabGpYUDl4bnoxMllQa1ZAlbwZDZD",
       }
     },
+    {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `NGNails`,
+      short_name: `NGNails`,
+      icon: `src/images/ngn-logo.png`,
+      start_url: `/`,
+      background_color: `#d4beb3`,
+      theme_color: `#d4beb3`,
+      display: `standalone`,
+    },
+  },
 
     {
 
