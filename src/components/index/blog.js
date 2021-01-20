@@ -15,16 +15,16 @@ const BlogContainer = styled.section`
 			object-fit: cover;
 
 			@media (min-width: 576px){
-				height: 118px;
+				height: 160px;
 			}
 			@media (min-width: 992px){
 				height: 195px;
 			}
 			@media (min-width: 1024px){
-				height: 166px;
+				height: 205px;
 			}
-			@media (min-width: 1250px){
-				height: 226px;
+			@media (min-width: 1900px){
+				height: 170px;
 			}
 			
 	
