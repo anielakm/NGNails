@@ -256,7 +256,8 @@ const Blog = ({ data, dictionary, lang }) => {
 				<Link to={item.node.slug} key={i} className="swiper-slide">
 					<img src={item.node.featuredImage.node.sourceUrl} alt=""/>
 					<h3>{item.node.title}</h3>
-					<p dangerouslySetInnerHTML={{__html: item.node.content.slice(0,160) }}></p>
+					{console.log(item.node.content.slice(0,90))}
+					<p dangerouslySetInnerHTML={{__html: item.node.excerpt ? (item.node.excerpt.slice(0,90) + ' ...' ): (item.node.content.slice(0,90) + ' ...') }}></p>
 				</Link>
 
 				))}
