@@ -75,7 +75,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://ngnails.pl/graphql`,
+          `https://www.blog-ngn.pl/graphql`,
           schema: {
             //Prefixes all WP Types with "Wp" so "Post and allPost" become "WpPost and allWpPost".
             typePrefix: `Wordpress`,

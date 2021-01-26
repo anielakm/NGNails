@@ -49,7 +49,7 @@ const Yt = ({ data, dictionary, lang }) => (
 		muted
 		autoPlay 
 		>
-		<source src="https://ngnails.pl/wp-content/uploads/2021/01/ngn.mp4" type="video/mp4" />
+		<source src="https://blog-ngn.pl/wp-content/uploads/2021/01/ngn.mp4" type="video/mp4" />
 	</video>
 
 	<div className="video__overlay">
