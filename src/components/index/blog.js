@@ -157,7 +157,7 @@ const BlogContainer = styled.section`
 			
 		}
 
-		p{
+		.content p{
 			font-size: .9em;
 		}
 
@@ -257,7 +257,7 @@ const Blog = ({ data, dictionary, lang }) => {
 					<img src={item.node.featuredImage.node.sourceUrl} alt=""/>
 					<h3>{item.node.title}</h3>
 					{console.log(item.node.content.slice(0,90))}
-					<p dangerouslySetInnerHTML={{__html: item.node.excerpt ? (item.node.excerpt.slice(0,90) + ' ...' ): (item.node.content.slice(0,90) + ' ...') }}></p>
+					<div className="content" dangerouslySetInnerHTML={{__html: item.node.excerpt ? (item.node.excerpt.slice(0,90) + ' ...' ) : (item.node.content.slice(0,90) + ' ...') }}></div>
 				</Link>
 
 				))}
