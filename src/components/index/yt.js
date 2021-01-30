@@ -54,7 +54,7 @@ const Yt = ({ data, dictionary, lang }) => (
 
 	<div className="video__overlay">
 		<div className="video__content">
-			<a href="https://www.youtube.com/channel/UCguUVgW3EHhh-Mqc7QQqeYw?view_as=subscriber" target="_blank" className="btn btn__beige">zobacz więcej</a>
+			<a href="https://www.youtube.com/channel/UCguUVgW3EHhh-Mqc7QQqeYw?view_as=subscriber" target="_blank" className="btn btn__beige">zobacz więcej na YouTube</a>
 		</div>
 	</div>
 

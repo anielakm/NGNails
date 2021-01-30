@@ -113,8 +113,8 @@ function About({ data, dictionary, lang }){
 			<AboutContainer className="section about" id="about">
 		<div className="container ">
 			<div className="col-1">
-					<Img className="about__img--1 rellax1" data-rellax-speed="-10" fluid={data.file1.childImageSharp.fluid} />
-					<Img className="about__img--2 rellax2" data-rellax-speed="-7" fixed={data.file2.childImageSharp.fixed} />
+					<Img className="about__img--1 rellax1" data-rellax-speed="-10" fluid={data.file1.childImageSharp.fluid} loading="eager" />
+					<Img className="about__img--2 rellax2" data-rellax-speed="-7" fixed={data.file2.childImageSharp.fixed} loading="eager" />
 			</div>
 			<div className="col-2">
 				<div className="about__text">

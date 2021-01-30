@@ -3,6 +3,7 @@ import React, { Children } from "react"
 import Article from '../components/blog/article'
 import { graphql } from "gatsby"
 import Layout from '../layouts/blog'
+import Helmet from 'react-helmet'
 
 
 class Main extends React.Component {
@@ -18,7 +19,9 @@ class Main extends React.Component {
 	
 	return (
 
-		<Layout>
+    <Layout>
+    
+    <Helmet><title>{this.props.pathContext.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</title></Helmet>
 			
 				{this.props.data.allWordpressPost.edges.map((item,i)=>(
 					<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories.nodes} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>

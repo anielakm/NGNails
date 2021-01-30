@@ -189,16 +189,17 @@ const Sidebar = () => {
 		Swiper.use([Navigation, Pagination, Autoplay]);
 	
 
-	let swiper = new Swiper('.swiper-container', {
+	let swiper = new Swiper('.swiper-sidebar', {
 
 		slidesPerView: 1,
 		loop: true,
+		spaceBetween: 0,
 					
 		autoplay: {
-			delay: 2500,
+			delay: 3000,
 			disableOnInteraction: false,
 			},
-		
+		speed: 1000,
 		navigation: {
 			nextEl: '.swiper-button-next',
 			prevEl: '.swiper-button-prev',
@@ -267,7 +268,7 @@ const Sidebar = () => {
 
 		<div className="ig">
 
-			<div className="swiper-container">
+			<div className="swiper-container swiper-sidebar">
 			
 				<div className="swiper-wrapper">
 
@@ -297,7 +298,7 @@ const Sidebar = () => {
 
 		<ul>
 		{data.allWordpressTag.edges.map(item=>
-        ( <li key={item.node.id}><Link to={`/tag/${item.node.slug}`}>{item.node.name}<span>{item.node.count}</span></Link></li>)
+        ( item.node.count > 0 ? (<li key={item.node.id}><Link to={`/tag/${item.node.slug}`}>{item.node.name}<span>{item.node.count}</span></Link></li>) :null )
         )}
 
 		</ul>

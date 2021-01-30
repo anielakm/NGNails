@@ -4,6 +4,8 @@ import { theme } from "../../utilis/theme"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from 'gatsby'
 
+
+
 const BlogContainer = styled.section`
 	background: white;
 	overflow: hidden;
@@ -38,10 +40,10 @@ const BlogContainer = styled.section`
 		}
 	}
 	.swiper-wrapper{
-		padding-bottom: 40px;
+		padding-bottom: 30px;
 
 		@media (min-width: 576px){
-			padding-bottom: 50px;
+			padding-bottom: 30px;
 		}
 	
 	}
@@ -54,21 +56,19 @@ const BlogContainer = styled.section`
 		width: fit-content;
 		z-index: 999;
 	
-		.swiper-pagination, .swiper-button-prev, .swiper-button-next{
+		/* .swiper-pagination, .swiper-button-prev, .swiper-button-next{
 			
 			@media (min-width: 1400px){
 				opacity: 0;
 				transition: opacity .3s;
 			}
-		}
+		} */
 
 		.swiper-pagination{
 			position: relative;
 			margin: 0 30px 22px;
 			z-index: 9999;
 		
-			
-
 			.swiper-pagination-bullet {
 				cursor: pointer;
 				margin: 0 3px;
@@ -204,7 +204,7 @@ const BlogContainer = styled.section`
 	
 `
 
-const Blog = ({ data, dictionary, lang }) => {
+const Blog = ({ data, dictionary, lang, limitWords }) => {
 
 
 	const dataPosts = useStaticQuery(graphql`
@@ -231,7 +231,9 @@ const Blog = ({ data, dictionary, lang }) => {
 			}
 	
 	
-	`)
+	`);
+
+	
 	
 	return (
 
@@ -252,12 +254,14 @@ const Blog = ({ data, dictionary, lang }) => {
 			<div className="swiper-wrapper">
 
 			{dataPosts.allWordpressPost.edges.map((item,i)=>(
+				
+				
 					
 				<Link to={item.node.slug} key={i} className="swiper-slide">
-					<img src={item.node.featuredImage.node.sourceUrl} alt=""/>
+	
+					{item.node.featuredImage.node ? <img src={item.node.featuredImage.node.sourceUrl} alt=""/> : null}
 					<h3>{item.node.title}</h3>
-					{console.log(item.node.content.slice(0,90))}
-					<div className="content" dangerouslySetInnerHTML={{__html: item.node.excerpt ? (item.node.excerpt.slice(0,90) + ' ...' ) : (item.node.content.slice(0,90) + ' ...') }}></div>
+					<div className="content" dangerouslySetInnerHTML={{__html: item.node.excerpt ? (limitWords(item.node.excerpt, 20)+ ' ...' ) : (limitWords(item.node.content, 20) + ' ...') }}></div>
 				</Link>
 
 				))}

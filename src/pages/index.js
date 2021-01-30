@@ -12,6 +12,7 @@ import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
 import Rellax from 'rellax'
 import { theme } from "../utilis/theme"
+import Helmet from 'react-helmet'
 
 
 class IndexPage extends React.Component {
@@ -52,8 +53,10 @@ class IndexPage extends React.Component {
       slidesPerView: 1,
       loop: true,
       autoplay: {
-        delay: 3000,
+        delay: 4000,
+        disableOnInteraction: false,
       },
+      speed: 1000,
 
 
       breakpoints: {
@@ -99,7 +102,7 @@ class IndexPage extends React.Component {
       loop: true,
       init: true,
       autoplay: {
-        delay: 3000,
+        delay: 3500,
       },
 
       breakpoints: {
@@ -183,11 +186,32 @@ class IndexPage extends React.Component {
 
   }
 
+  limitWords(textToLimit, wordLimit){
+  
+    let finalText = '';
+    let text2 = textToLimit.replace(/\s+/g, ` `);
+    let text3 = text2.split(` `);
+    let numberOfWords = text3.length;
+
+    let i=0;
+
+    if(numberOfWords > wordLimit){
+    for(i=0; i< wordLimit; i++)
+    finalText = finalText+' '+ text3[i]+' ';
+
+    return finalText;
+    }
+    else return textToLimit;
+    }
+
   render() {
 
     return (
       <>
         <GlobalStyle />
+        <Helmet>
+          <title>NGNails | Gel Manicure and Nail Art Tutorials</title>
+        </Helmet>
 
         <header>
           <Nav dictionary={this.state.dictionary} lang={this.state.lang} handleMenu={this.handleMenu} />
@@ -195,7 +219,7 @@ class IndexPage extends React.Component {
          </header>
          <main>
           <About dictionary={this.state.dictionary} lang={this.state.lang} />
-          <Blog dictionary={this.state.dictionary} lang={this.state.lang} />
+          <Blog dictionary={this.state.dictionary} lang={this.state.lang} limitWords={this.limitWords} />
           <Yt dictionary={this.state.dictionary} lang={this.state.lang} />
           <Ig dictionary={this.state.dictionary} lang={this.state.lang} />
          </main>

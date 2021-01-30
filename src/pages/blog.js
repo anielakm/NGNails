@@ -6,6 +6,7 @@ import Nav from '../components/blog/nav'
 import GlobalStyle from '../styles/globalStyles'
 import { theme } from "../utilis/theme"
 import 'swiper/swiper-bundle.css';
+import Helmet from 'react-helmet'
 
 import styled from 'styled-components'
 
@@ -95,7 +96,13 @@ class Blog extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			postToShow: 8,
+		};
+	  }
+
+	handlePost = () => {
+		  this.setState((state, props)=>({postToShow: this.state.postToShow + 8}));
 	  }
 
 	handleMenu(){
@@ -109,6 +116,9 @@ class Blog extends React.Component {
 			return (
 
 				<React.Fragment>
+				<Helmet>
+				<title>NGNails Blog| Gel Manicure and Nail Art Tutorials</title>
+			  </Helmet>
 
 					<GlobalStyle />
 
@@ -116,7 +126,7 @@ class Blog extends React.Component {
 						<Header />
 						<Nav />
 
-						<Burger className="burger" onClick={this.handleMenu}>
+						<Burger className="burger" onClick={this.handleMenu} >
 							<span></span>
 							<span></span>
 							<span></span>
@@ -125,7 +135,7 @@ class Blog extends React.Component {
 					</header>
 
 					<main>
-						<Main />
+						<Main handlePost={this.handlePost} postToShow={this.state.postToShow} />
 					</main>
 
 					<footer>

@@ -79,7 +79,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h3 {
-    font-size: 1.25em;
+    font-size: 1.15em;
     line-height: 1.3em;
     margin: .75em 0 .5em;
 

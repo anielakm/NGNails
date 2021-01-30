@@ -104,7 +104,7 @@ class Main extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-		 postToShow: 6,
+	
 		};
 	  }
 
@@ -145,13 +145,14 @@ class Main extends React.Component {
 		<MainContainer>
 			<div className="container">
 				<section className="blog-list">
+				{console.log(this.props)}
 			
 				{data.allWordpressPost.edges.map((item,i)=>(
-					item.node.featuredImage.node.sourceUrl ? (<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>) : null )).slice(0,this.state.postToShow)}
+					item.node.featuredImage.node.sourceUrl ? (<Article key={i} content={item.node.content} thumbnail={item.node.featuredImage.node.sourceUrl} categories={item.node.categories} slug={item.node.slug} title={item.node.title} date={item.node.date} excerpt={item.node.excerpt}/>) : null )).slice(0,this.props.postToShow)}
 				
 				<button href="" className="btn btn__beige" onClick={
 					()=>{
-						this.setState({postToShow: this.state.postToShow + 6})
+						this.props.handlePost();
 					}
 				}>Wczytaj więcej</button>
 				</section>

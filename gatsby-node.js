@@ -65,6 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
           // This is the $slug variable
           // passed to blog-post.js
           slug: node.slug,
+          name: node.name,
         },
       })
     });
@@ -79,6 +80,7 @@ exports.createPages = ({ graphql, actions }) => {
           // This is the $slug variable
           // passed to blog-post.js
           slug: node.slug,
+          name: node.name
         },
       })
     });

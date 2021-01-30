@@ -4,6 +4,7 @@ import { Link } from "gatsby"
 import Layout from '../layouts/blog'
 import { theme } from "../utilis/theme"
 import styled from 'styled-components'
+import Helmet from 'react-helmet'
 
 const Article = styled.article`
 max-width: 100%;
@@ -194,6 +195,9 @@ export default ({ data }) => {
  
   return (
     <Layout>
+      <Helmet>
+				<title>{post.title}</title>
+			</Helmet>
       
     <Article>
     
