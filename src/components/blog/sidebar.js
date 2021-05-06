@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import SidebarAds from './sidebar-ads'
 import Fb from '../../images/fb.png'
 
-import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
+// import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 
 
 const SidebarContainer = styled.aside`
@@ -155,16 +155,16 @@ const Sidebar = () => {
 			}
 		}
 
-		allInstagramContent(limit: 8) {
-		edges {
-		  node {
-			id
-			localImage {
-			  url
-			}
-		  }
-		}
-	}
+	# 	allInstagramContent(limit: 8) {
+	# 	edges {
+	# 	  node {
+	# 		id
+	# 		localImage {
+	# 		  url
+	# 		}
+	# 	  }
+	# 	}
+	# }
 
 		allYoutubeVideo(limit: 3) {
 			edges {
@@ -185,36 +185,36 @@ const Sidebar = () => {
 	  
 	 `)
 
-	 useEffect(() => {
-		Swiper.use([Navigation, Pagination, Autoplay]);
+	//  useEffect(() => {
+	// 	Swiper.use([Navigation, Pagination, Autoplay]);
 	
 
-	let swiper = new Swiper('.swiper-sidebar', {
+	// 	let swiper = new Swiper('.swiper-sidebar', {
 
-		slidesPerView: 1,
-		loop: true,
-		spaceBetween: 0,
+	// 		slidesPerView: 1,
+	// 		loop: true,
+	// 		spaceBetween: 0,
+						
+	// 		autoplay: {
+	// 			delay: 3000,
+	// 			disableOnInteraction: false,
+	// 			},
+	// 		speed: 1000,
+	// 		navigation: {
+	// 			nextEl: '.swiper-button-next',
+	// 			prevEl: '.swiper-button-prev',
+	// 		},
 					
-		autoplay: {
-			delay: 3000,
-			disableOnInteraction: false,
-			},
-		speed: 1000,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		  },
-				
-  
-		  pagination: {
-			el: '.swiper-pagination',
-			type: 'bullets',
-			clickable: true,
-		  }
-		
-  
-	  });
-	  });
+	
+	// 		pagination: {
+	// 			el: '.swiper-pagination',
+	// 			type: 'bullets',
+	// 			clickable: true,
+	// 		}
+			
+	
+	// 	});
+	//   });
 	
 	 
 	 
@@ -262,7 +262,7 @@ const Sidebar = () => {
 <a href="https://www.facebook.com/ngnailspl/" target="_blank"><img src={Fb} alt=""/></a>
 		
 		</section>
-		<section>
+		{/* <section>
 
 		<h3>Instagram</h3>
 
@@ -291,7 +291,7 @@ const Sidebar = () => {
 		
 		</div>
 		
-		</section>
+		</section> */}
 		<section className="tags">
 
 		<h3>Popularne tagi</h3>

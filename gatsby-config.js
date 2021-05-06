@@ -50,12 +50,12 @@ module.exports = {
       },
     },
     
-    {
-      resolve: `gatsby-source-instagram-all`,
-      options: {
-        access_token: "IGQVJXTU5FcDJESjQtZAElaV2FLelM4ZAmJZAajVNUXlLSEp5b0hobldseC1ZAOGg3WThXbS1VcXVkR3NwNU9ZAblhCOE1zdEtzM20xX2dfcFhydHlLV2lnNy10MFZALdVFnc0ZAabGpYUDl4bnoxMllQa1ZAlbwZDZD",
-      }
-    },
+    // {
+    //   resolve: `gatsby-source-instagram-all`,
+    //   options: {
+    //     access_token: "IGQVJXTU5FcDJESjQtZAElaV2FLelM4ZAmJZAajVNUXlLSEp5b0hobldseC1ZAOGg3WThXbS1VcXVkR3NwNU9ZAblhCOE1zdEtzM20xX2dfcFhydHlLV2lnNy10MFZALdVFnc0ZAabGpYUDl4bnoxMllQa1ZAlbwZDZD",
+    //   }
+    // },
     {
     resolve: `gatsby-plugin-manifest`,
     options: {

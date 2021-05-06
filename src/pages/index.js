@@ -6,7 +6,7 @@ import Nav from '../components/index/nav'
 import About from '../components/index/about'
 import Blog from '../components/index/blog'
 import Yt from '../components/index/yt'
-import Ig from '../components/index/ig'
+// import Ig from '../components/index/ig'
 import Footer from '../components/footer'
 import Swiper, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper-bundle.css';
@@ -127,7 +127,7 @@ class IndexPage extends React.Component {
     const about = document.getElementById('about').offsetTop - 40;
     // const blog = document.getElementById('blog').offsetTop;
     const yt = document.getElementById('yt').offsetTop  - 40;
-    const ig = document.getElementById('ig').offsetTop - 40;
+    // const ig = document.getElementById('ig').offsetTop - 40;
     const footer = document.getElementById('footer').offsetTop - 40;
 
     window.onscroll = function() {scrollFunction()};
@@ -137,10 +137,12 @@ class IndexPage extends React.Component {
     if ((document.body.scrollTop > about && document.body.scrollTop < yt) || (document.documentElement.scrollTop > about && document.documentElement.scrollTop < yt)) {
       menuItems.forEach(item=>item.style.background = theme.colors.beige);
       // console.log('about')
-    } else if ((document.body.scrollTop > yt && document.body.scrollTop < ig) || (document.documentElement.scrollTop > yt && document.documentElement.scrollTop < ig)) {
-      menuItems.forEach(item=>item.style.background = 'white');
-      // console.log('yt')
-    }  else if ((document.body.scrollTop > ig && document.body.scrollTop < footer) || (document.documentElement.scrollTop > ig && document.documentElement.scrollTop < footer)) {
+    } 
+    // else if ((document.body.scrollTop > yt && document.body.scrollTop < ig) || (document.documentElement.scrollTop > yt && document.documentElement.scrollTop < ig)) {
+    //   menuItems.forEach(item=>item.style.background = 'white');
+    //   // console.log('yt')
+    // }  
+    else if ((document.body.scrollTop > yt && document.body.scrollTop < footer) || (document.documentElement.scrollTop > yt && document.documentElement.scrollTop < footer)) {
       menuItems.forEach(item=>item.style.background = theme.colors.beige)
       // console.log('ig')
     }  else{
@@ -221,7 +223,7 @@ class IndexPage extends React.Component {
           <About dictionary={this.state.dictionary} lang={this.state.lang} />
           <Blog dictionary={this.state.dictionary} lang={this.state.lang} limitWords={this.limitWords} />
           <Yt dictionary={this.state.dictionary} lang={this.state.lang} />
-          <Ig dictionary={this.state.dictionary} lang={this.state.lang} />
+          {/* <Ig dictionary={this.state.dictionary} lang={this.state.lang} /> */}
          </main>
          <footer>
            <Footer dictionary={this.state.dictionary} lang={this.state.lang}/>

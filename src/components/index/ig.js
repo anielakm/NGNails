@@ -52,23 +52,23 @@ const IgContainer = styled.section`
 
 const Ig = ({ dictionary, lang }) => {
 
-	const data = useStaticQuery(graphql`
-	{
+	// const data = useStaticQuery(graphql`
+	// {
 
-	allInstagramContent(limit: 8) {
-		edges {
-		  node {
-			id
-			localImage {
-			  url
-			}
-		  }
-		}
-	  }
+	// allInstagramContent(limit: 8) {
+	// 	edges {
+	// 	  node {
+	// 		id
+	// 		localImage {
+	// 		  url
+	// 		}
+	// 	  }
+	// 	}
+	//   }
 
-	 }	  	
+	//  }	  	
 	  
-     `)
+    //  `)
     
 	return (
 
